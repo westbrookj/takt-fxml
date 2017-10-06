@@ -202,7 +202,7 @@ public class TAKTFXMLController implements Initializable
         
         Scene scene = new Scene(root, 1080, 720);
         
-        settingsStage.setScene(scene); //asdf
+        settingsStage.setScene(scene);
         settingsStage.show();
     }
 }

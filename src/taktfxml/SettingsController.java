@@ -63,6 +63,7 @@ public class SettingsController implements Initializable
     @FXML
     public void handleSaveButton(ActionEvent event)
     {
+        System.out.println(taktTextField.getText() + " " + partNumTextField.getText() + " " + unitGoalTextField.getText());
         if(Double.parseDouble(taktTextField.getText()) != TAKTFXMLModel.getTaktTime())
         {
             TAKTFXMLModel.setTaktTime(Double.parseDouble(taktTextField.getText()));
@@ -73,8 +74,10 @@ public class SettingsController implements Initializable
         }
         if(Integer.parseInt(unitGoalTextField.getText()) != TAKTFXMLModel.getUnitGoal())
         {
-            TAKTFXMLModel.setUnitGoal(Integer.parseInt(partNumTextField.getText()));
+            TAKTFXMLModel.setUnitGoal(Integer.parseInt(unitGoalTextField.getText()));
         }
+        
+        System.out.println(TAKTFXMLModel.getTaktTime() + " " + TAKTFXMLModel.getPartNumber() + " " + TAKTFXMLModel.getUnitGoal());
         
         TAKTFXMLModel.saveProperties();
     }

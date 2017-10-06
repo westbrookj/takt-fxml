@@ -51,6 +51,7 @@ public class TAKTFXMLModel
     
     private static Properties prop;
     
+    private static String fileName = "./config.properties";
     private static File file;
     private static File path;
     private static File inputFile;
@@ -166,7 +167,7 @@ public class TAKTFXMLModel
 
         try
         {
-            output = new FileOutputStream(inputFile);;
+            output = new FileOutputStream(fileName);;
             prop.store(output, null);
         } catch (IOException ex) 
         {

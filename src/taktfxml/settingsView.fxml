@@ -34,14 +34,14 @@
                <effect>
                   <InnerShadow choke="0.67" color="#234972" height="47.88" radius="23.275" width="47.22" />
                </effect></Button>
-            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Save" textFill="WHITE">
+            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSaveButton" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Save" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
                <effect>
                   <InnerShadow choke="0.67" color="#234972" height="47.88" radius="23.275" width="47.22" />
                </effect></Button>
-            <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Close" textFill="WHITE">
+            <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCloseButton" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Close" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
