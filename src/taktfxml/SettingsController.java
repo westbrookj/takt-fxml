@@ -63,21 +63,18 @@ public class SettingsController implements Initializable
     @FXML
     public void handleSaveButton(ActionEvent event)
     {
-        System.out.println(taktTextField.getText() + " " + partNumTextField.getText() + " " + unitGoalTextField.getText());
-        if(Double.parseDouble(taktTextField.getText()) != TAKTFXMLModel.getTaktTime())
+        if(Double.parseDouble(taktTextField.getText()) != TAKTFXMLModel.getTaktTime() && !taktTextField.getText().isEmpty())
         {
             TAKTFXMLModel.setTaktTime(Double.parseDouble(taktTextField.getText()));
         }
-        if(Integer.parseInt(partNumTextField.getText()) != TAKTFXMLModel.getPartNumber())
+        if(Integer.parseInt(partNumTextField.getText()) != TAKTFXMLModel.getPartNumber() && !partNumTextField.getText().isEmpty())
         {
             TAKTFXMLModel.setPartNumber(Integer.parseInt(partNumTextField.getText()));
         }
-        if(Integer.parseInt(unitGoalTextField.getText()) != TAKTFXMLModel.getUnitGoal())
+        if(Integer.parseInt(unitGoalTextField.getText()) != TAKTFXMLModel.getUnitGoal() && !unitGoalTextField.getText().isEmpty())
         {
             TAKTFXMLModel.setUnitGoal(Integer.parseInt(unitGoalTextField.getText()));
         }
-        
-        System.out.println(TAKTFXMLModel.getTaktTime() + " " + TAKTFXMLModel.getPartNumber() + " " + TAKTFXMLModel.getUnitGoal());
         
         TAKTFXMLModel.saveProperties();
     }
@@ -94,7 +91,9 @@ public class SettingsController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        
+        taktTextField.setText(String.format("%f", TAKTFXMLModel.getTaktTime() / 60));
+        partNumTextField.setText(String.format("%d", TAKTFXMLModel.getPartNumber()));
+        unitGoalTextField.setText(String.format("%d", TAKTFXMLModel.getUnitGoal()));
     }    
     
 }

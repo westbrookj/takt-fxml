@@ -96,7 +96,7 @@ public class TAKTFXMLModel
                 emailList = new ArrayList<>();
                 path = new File(outputLocation);
             
-                 for(int i = 0; i < numberOfEmails; i++)
+                for(int i = 0; i < numberOfEmails; i++)
                 {
                     emailList.add(prop.getProperty("email" + i));
                 }
@@ -146,7 +146,7 @@ public class TAKTFXMLModel
         }
         if(!Double.toString(taktTime).equals(prop.getProperty("taktTime")))
         {
-            prop.setProperty("taktTime", String.format("%f", taktTime / 60));
+            prop.setProperty("taktTime", String.format("%f", taktTime));
         }
         if(!Double.toString(secondsRemaining).equals(prop.getProperty("secondsRemaining")))
         {
@@ -154,7 +154,7 @@ public class TAKTFXMLModel
         }
         if(!Integer.toString(partNumber).equals(prop.getProperty("partNumber")))
         {
-            prop.setProperty("unitGoal", String.format("%d", unitGoal));
+            prop.setProperty("partNumber", String.format("%d", partNumber));
         }
         
         for(int i = 0; i < numberOfEmails; i++)
@@ -233,7 +233,6 @@ public class TAKTFXMLModel
     public static double getSecondsRemaining(){return secondsRemaining;}
     public static void setSecondsRemaining(double number){secondsRemaining = number;}
     public static void decrementSecondsRemaining(){secondsRemaining--;}
-    
     
     public static void updateOutputFile()
     {        
