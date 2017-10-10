@@ -9,13 +9,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -24,6 +28,7 @@ import javafx.scene.layout.VBox;
  */
 public class SettingsController implements Initializable
 {
+    private static Stage fileEmailStage;
 
     @FXML
     private GridPane root;
@@ -55,9 +60,15 @@ public class SettingsController implements Initializable
     private TextField unitGoalTextField;
     
     @FXML
-    public void handleLabelButton(ActionEvent event)
+    public void handleFileEmailButton(ActionEvent event) throws Exception
     {
+        fileEmailStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fileEmailView.fxml"));
         
+        Scene scene = new Scene(root, 1080, 720);
+        
+        fileEmailStage.setScene(scene);
+        fileEmailStage.show();
     }
     
     @FXML
@@ -65,7 +76,7 @@ public class SettingsController implements Initializable
     {
         if(Double.parseDouble(taktTextField.getText()) != TAKTFXMLModel.getTaktTime() && !taktTextField.getText().isEmpty())
         {
-            TAKTFXMLModel.setTaktTime(Double.parseDouble(taktTextField.getText()));
+            TAKTFXMLModel.setTaktTime(Double.parseDouble(taktTextField.getText()) * 60);
         }
         if(Integer.parseInt(partNumTextField.getText()) != TAKTFXMLModel.getPartNumber() && !partNumTextField.getText().isEmpty())
         {
@@ -83,6 +94,11 @@ public class SettingsController implements Initializable
     public void handleCloseButton(ActionEvent event)
     {
         TAKTFXMLController.closeSettingsStage();
+    }
+    
+    public static void closeFileEmailStage()
+    {
+        fileEmailStage.close();
     }
 
     /**

@@ -146,7 +146,7 @@ public class TAKTFXMLModel
         }
         if(!Double.toString(taktTime).equals(prop.getProperty("taktTime")))
         {
-            prop.setProperty("taktTime", String.format("%f", taktTime));
+            prop.setProperty("taktTime", String.format("%f", taktTime / 60));
         }
         if(!Double.toString(secondsRemaining).equals(prop.getProperty("secondsRemaining")))
         {
@@ -155,6 +155,14 @@ public class TAKTFXMLModel
         if(!Integer.toString(partNumber).equals(prop.getProperty("partNumber")))
         {
             prop.setProperty("partNumber", String.format("%d", partNumber));
+        }
+        if(!outputFileName.equals(prop.getProperty("outputFileName")))
+        {
+            prop.setProperty("outputFileName", outputFileName);
+        }
+        if(!outputLocation.equals(prop.getProperty("outputLocation")))
+        {
+            prop.setProperty("outputLocation", outputLocation);
         }
         
         for(int i = 0; i < numberOfEmails; i++)
