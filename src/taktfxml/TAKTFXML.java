@@ -20,10 +20,12 @@ public class TAKTFXML extends Application
     private TAKTFXMLModel model;
     private double width;
     private double height;
+    public static Stage rootStage;
     
     @Override
     public void start(Stage stage) throws Exception
     {
+        rootStage = stage;
         model = new TAKTFXMLModel();
         width = TAKTFXMLModel.getWidth();
         height = TAKTFXMLModel.getHeight();
@@ -34,6 +36,7 @@ public class TAKTFXML extends Application
         
         stage.setScene(scene);
         stage.show();
+        stage.toFront();
         stage.setFullScreen(true);
     }
 

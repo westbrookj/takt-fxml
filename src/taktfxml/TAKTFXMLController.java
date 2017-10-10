@@ -34,7 +34,7 @@ public class TAKTFXMLController implements Initializable
 {
     private Timeline timeline;
     private KeyFrame keyframe;
-    private static Stage settingsStage;
+    public static Stage settingsStage;
     
     @FXML 
     private GridPane root;
@@ -99,6 +99,8 @@ public class TAKTFXMLController implements Initializable
     
     public void updateTAKTTime(boolean bool)
     {
+        unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
+        
         if(bool == true)
             TAKTFXMLModel.decrementSecondsRemaining();
 

@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  */
 public class SettingsController implements Initializable
 {
-    private static Stage fileEmailStage;
+    public static Stage fileEmailStage;
 
     @FXML
     private GridPane root;
@@ -96,9 +96,17 @@ public class SettingsController implements Initializable
         TAKTFXMLController.closeSettingsStage();
     }
     
+    @FXML
+    public void handleResetUnitsButton(ActionEvent event)
+    {
+        TAKTFXMLModel.setUnits(1);
+        TAKTFXMLModel.saveProperties();
+    }
+    
     public static void closeFileEmailStage()
     {
         fileEmailStage.close();
+        TAKTFXML.rootStage.toFront();
     }
 
     /**

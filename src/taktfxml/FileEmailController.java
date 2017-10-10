@@ -144,6 +144,7 @@ public class FileEmailController implements Initializable
     public void handleCloseButton(ActionEvent event)
     {
         SettingsController.closeFileEmailStage();
+        TAKTFXMLController.settingsStage.toFront();
     }
     
     @Override
