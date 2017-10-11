@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -18,23 +19,21 @@ import javafx.stage.Stage;
 public class TAKTFXML extends Application
 {
     private TAKTFXMLModel model;
-    private double width;
-    private double height;
-    public static Stage rootStage;
+    private static Stage rootStage;
+    public static Parent root;
     
     @Override
     public void start(Stage stage) throws Exception
     {
         rootStage = stage;
         model = new TAKTFXMLModel();
-        width = TAKTFXMLModel.getWidth();
-        height = TAKTFXMLModel.getHeight();
         
-        Parent root = FXMLLoader.load(getClass().getResource("TAKTFXMLView.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TAKTFXMLView.fxml"));
         
-        Scene scene = new Scene(root, width, height);
+        Scene scene = new Scene(root, TAKTFXMLModel.getWidth(), TAKTFXMLModel.getHeight());
         
         stage.setScene(scene);
+        stage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
         stage.show();
         stage.toFront();
         stage.setFullScreen(true);
@@ -47,4 +46,6 @@ public class TAKTFXML extends Application
     {
         launch(args);
     }
+    
+    public static void changeRoot(Parent root){rootStage.getScene().setRoot(root);}
 }

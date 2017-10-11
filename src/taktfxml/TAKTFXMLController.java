@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -34,7 +35,7 @@ public class TAKTFXMLController implements Initializable
 {
     private Timeline timeline;
     private KeyFrame keyframe;
-    public static Stage settingsStage;
+    public static Parent settingsRoot;
     
     @FXML 
     private GridPane root;
@@ -119,15 +120,10 @@ public class TAKTFXMLController implements Initializable
         dateTimeLbl.setText(TAKTFXMLModel.getDateString());
     }
     
-    public static void closeSettingsStage()
-    {
-        settingsStage.close();
-    }
-    
     @FXML
     public void handleStartButton(ActionEvent event)
     {
-        unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
+        updateTAKTTime(false);
         timeline.play();
         
         if(TAKTFXMLModel.getIsPaused() != true && TAKTFXMLModel.getIsRunning() == false)
@@ -199,12 +195,12 @@ public class TAKTFXMLController implements Initializable
     @FXML
     public void handleSettingsButton(ActionEvent event) throws Exception
     {
-        settingsStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
+//        settingsStage = new Stage();
+        settingsRoot = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
         
-        Scene scene = new Scene(root, 1080, 720);
-        
-        settingsStage.setScene(scene);
-        settingsStage.show();
+        TAKTFXML.changeRoot(settingsRoot);
+//        settingsStage.setScene(scene);
+//        settingsStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
+//        settingsStage.show();
     }
 }

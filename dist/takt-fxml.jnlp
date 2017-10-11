@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="takt-fxml.jar" size="473171" download="eager" />
+    <jar href="takt-fxml.jar" size="544822" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="takt-fxml" >
     <param name="requiredFXVersion" value="8.0+"/>

@@ -78,14 +78,11 @@ public class TAKTFXMLModel
         {
             if(inputFile.exists())
             {
-                String temp;
                 input = new FileInputStream(inputFile);
                 prop.load(input);
 
-                temp = prop.getProperty("windowWidth");
-                width = Integer.parseInt(temp);
-                temp = prop.getProperty("windowHeight");
-                height = Integer.parseInt(temp);
+                width = Integer.parseInt(prop.getProperty("windowWidth"));
+                height = Integer.parseInt(prop.getProperty("windowHeight"));
                 taktTime = Double.parseDouble(prop.getProperty("taktTime")) * 60;
                 unitGoal = Integer.parseInt(prop.getProperty("unitGoal"));
                 partNumber = Integer.parseInt(prop.getProperty("partNumber"));
@@ -98,7 +95,7 @@ public class TAKTFXMLModel
             
                 for(int i = 0; i < numberOfEmails; i++)
                 {
-                    emailList.add(prop.getProperty("email" + i));
+                    emailList.add(i, prop.getProperty("email" + i));
                 }
             }else
             {
@@ -112,7 +109,7 @@ public class TAKTFXMLModel
                 emailList = new ArrayList<>();
                 emailList.addAll(Arrays.asList("", "", "", "", "", "", "", "", "", "", "", ""));
                 inputFile.createNewFile();
-                //saveProperties();
+                saveProperties();
             }
 
         } catch (IOException ex) 
@@ -130,8 +127,6 @@ public class TAKTFXMLModel
                 }
             }
         }
-        
-        //saveProperties();
     }
     
     public static void saveProperties()
@@ -175,7 +170,7 @@ public class TAKTFXMLModel
 
         try
         {
-            output = new FileOutputStream(fileName);;
+            output = new FileOutputStream(fileName);
             prop.store(output, null);
         } catch (IOException ex) 
         {

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,8 +29,7 @@ import javafx.stage.Stage;
  */
 public class SettingsController implements Initializable
 {
-    public static Stage fileEmailStage;
-
+    private Parent fileEmailRoot;
     @FXML
     private GridPane root;
     @FXML
@@ -62,13 +62,14 @@ public class SettingsController implements Initializable
     @FXML
     public void handleFileEmailButton(ActionEvent event) throws Exception
     {
-        fileEmailStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("fileEmailView.fxml"));
+//        fileEmailStage = new Stage();        
+        fileEmailRoot = FXMLLoader.load(getClass().getResource("fileEmailView.fxml"));
         
-        Scene scene = new Scene(root, 1080, 720);
+        TAKTFXML.changeRoot(fileEmailRoot);
         
-        fileEmailStage.setScene(scene);
-        fileEmailStage.show();
+//        fileEmailStage.setScene(scene);
+//        fileEmailStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
+//        fileEmailStage.show();
     }
     
     @FXML
@@ -93,20 +94,16 @@ public class SettingsController implements Initializable
     @FXML
     public void handleCloseButton(ActionEvent event)
     {
-        TAKTFXMLController.closeSettingsStage();
+//        TAKTFXMLController.closeSettingsStage();
+        TAKTFXML.changeRoot(TAKTFXML.root);
     }
     
     @FXML
     public void handleResetUnitsButton(ActionEvent event)
     {
         TAKTFXMLModel.setUnits(1);
+        TAKTFXMLModel.setSecondsRemaining(TAKTFXMLModel.getTaktTime());
         TAKTFXMLModel.saveProperties();
-    }
-    
-    public static void closeFileEmailStage()
-    {
-        fileEmailStage.close();
-        TAKTFXML.rootStage.toFront();
     }
 
     /**
