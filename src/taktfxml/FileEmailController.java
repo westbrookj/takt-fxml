@@ -143,7 +143,7 @@ public class FileEmailController implements Initializable
     @FXML
     public void handleCloseButton(ActionEvent event)
     {
-        TAKTFXML.changeRoot(TAKTFXMLController.settingsRoot);
+        TAKTFXML.setRoot(TAKTFXMLController.settingsRoot);
     }
     
     @Override

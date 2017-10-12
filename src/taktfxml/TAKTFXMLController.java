@@ -198,7 +198,7 @@ public class TAKTFXMLController implements Initializable
 //        settingsStage = new Stage();
         settingsRoot = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
         
-        TAKTFXML.changeRoot(settingsRoot);
+        TAKTFXML.setRoot(settingsRoot);
 //        settingsStage.setScene(scene);
 //        settingsStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
 //        settingsStage.show();

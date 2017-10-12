@@ -65,7 +65,7 @@ public class SettingsController implements Initializable
 //        fileEmailStage = new Stage();        
         fileEmailRoot = FXMLLoader.load(getClass().getResource("fileEmailView.fxml"));
         
-        TAKTFXML.changeRoot(fileEmailRoot);
+        TAKTFXML.setRoot(fileEmailRoot);
         
 //        fileEmailStage.setScene(scene);
 //        fileEmailStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
@@ -95,7 +95,7 @@ public class SettingsController implements Initializable
     public void handleCloseButton(ActionEvent event)
     {
 //        TAKTFXMLController.closeSettingsStage();
-        TAKTFXML.changeRoot(TAKTFXML.root);
+        TAKTFXML.setRoot(TAKTFXML.getRoot());
     }
     
     @FXML

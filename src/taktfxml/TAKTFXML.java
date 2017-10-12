@@ -20,7 +20,7 @@ public class TAKTFXML extends Application
 {
     private TAKTFXMLModel model;
     private static Stage rootStage;
-    public static Parent root;
+    private static Parent root;
     
     @Override
     public void start(Stage stage) throws Exception
@@ -47,5 +47,6 @@ public class TAKTFXML extends Application
         launch(args);
     }
     
-    public static void changeRoot(Parent root){rootStage.getScene().setRoot(root);}
+    public static Parent getRoot(){return root;}
+    public static void setRoot(Parent root){rootStage.getScene().setRoot(root);}
 }
