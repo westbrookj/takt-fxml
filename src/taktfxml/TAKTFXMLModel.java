@@ -76,40 +76,56 @@ public class TAKTFXMLModel
         
         try
         {
-            if(inputFile.exists())
+            if(!inputFile.exists())
             {
-                input = new FileInputStream(inputFile);
-                prop.load(input);
-
-                width = Integer.parseInt(prop.getProperty("windowWidth"));
-                height = Integer.parseInt(prop.getProperty("windowHeight"));
-                taktTime = Double.parseDouble(prop.getProperty("taktTime")) * 60;
-                unitGoal = Integer.parseInt(prop.getProperty("unitGoal"));
-                partNumber = Integer.parseInt(prop.getProperty("partNumber"));
-                units = Integer.parseInt(prop.getProperty("units"));
-                secondsRemaining = Double.parseDouble(prop.getProperty("secondsRemaining"));
-                outputLocation = prop.getProperty("outputLocation");
-                outputFileName = prop.getProperty("outputFileName");
-                emailList = new ArrayList<>();
-                path = new File(outputLocation);
-            
-                for(int i = 0; i < numberOfEmails; i++)
+                try
                 {
-                    emailList.add(i, prop.getProperty("email" + i));
-                }
-            }else
+                   inputFile.createNewFile();
+                }catch (IOException e)
+                {
+                   e.printStackTrace();
+                }   
+            }
+            
+            emailList = new ArrayList<>();
+            input = new FileInputStream(inputFile);
+            prop.load(input);
+
+            if(prop.getProperty("windowWidth") != null){
+                width = Integer.parseInt(prop.getProperty("windowWidth"));
+            }else{width = 1920;}
+            if(prop.getProperty("windowHeight") != null){
+                height = Integer.parseInt(prop.getProperty("windowHeight"));
+            }else{height = 1080;}
+            if(prop.getProperty("taktTime") != null){
+                taktTime = Double.parseDouble(prop.getProperty("taktTime")) * 60;
+            }else{taktTime = 1500;}
+            if(prop.getProperty("unitGoal") != null){
+                unitGoal = Integer.parseInt(prop.getProperty("unitGoal"));
+            }else{unitGoal = 20;}
+            if(prop.getProperty("partNumber") != null){
+                partNumber = Integer.parseInt(prop.getProperty("partNumber"));
+            }else{partNumber = 1234;}
+            if(prop.getProperty("units") != null){
+                units = Integer.parseInt(prop.getProperty("units"));
+            }else{units = 1;}
+            if(prop.getProperty("secondsRemaining") != null){
+                secondsRemaining = Double.parseDouble(prop.getProperty("secondsRemaining"));
+            }else{secondsRemaining = taktTime;}
+            if(prop.getProperty("outputLocation") != null){
+                outputLocation = prop.getProperty("outputLocation");
+            }else{outputLocation = "C:\\TAKT\\logs\\";}
+            if(prop.getProperty("outputFileName") != null){
+                outputFileName = prop.getProperty("outputFileName");
+            }else{outputFileName = "TAKT.csv";}
+
+            path = new File(outputLocation);
+
+            for(int i = 0; i < numberOfEmails; i++)
             {
-                width = 1920;
-                height = 1080;
-                taktTime = 1500;
-                unitGoal = 20;
-                partNumber = 0;
-                outputLocation = "C:\\TAKT\\logs\\";
-                outputFileName = "TAKT.csv";
-                emailList = new ArrayList<>();
-                emailList.addAll(Arrays.asList("", "", "", "", "", "", "", "", "", "", "", ""));
-                inputFile.createNewFile();
-                saveProperties();
+                if(prop.getProperty("email" + i) != null){
+                    emailList.add(i, prop.getProperty("email" + i));
+                }else{emailList.add(i, "");}
             }
 
         } catch (IOException ex) 
