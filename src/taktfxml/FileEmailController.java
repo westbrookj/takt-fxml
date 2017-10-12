@@ -80,59 +80,59 @@ public class FileEmailController implements Initializable
     {
         emailList = TAKTFXMLModel.getEmailList();
         
-        if(!outputFileTextField.getText().equals(TAKTFXMLModel.getOutputFileName()) && !outputFileTextField.getText().isEmpty())
+        if(!outputFileTextField.getText().equals(TAKTFXMLModel.getOutputFileName()) /*&& !outputFileTextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setOutputFileName(outputFileTextField.getText());
         }
-        if(!fileLocationTextField.getText().equals(TAKTFXMLModel.getOutputLocation()) && !fileLocationTextField.getText().isEmpty())
+        if(!fileLocationTextField.getText().equals(TAKTFXMLModel.getOutputLocation()) /*&& !fileLocationTextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setOutputLocation(fileLocationTextField.getText());
         }
-        if(!email0TextField.getText().equals(emailList.get(0)) && !email0TextField.getText().isEmpty())
+        if(!email0TextField.getText().equals(emailList.get(0)) /*&& !email0TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(0, email0TextField.getText());
         }
-        if(!email1TextField.getText().equals(emailList.get(1)) && !email1TextField.getText().isEmpty())
+        if(!email1TextField.getText().equals(emailList.get(1)) /*&& !email1TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(1, email1TextField.getText());
         }
-        if(!email2TextField.getText().equals(emailList.get(2)) && !email2TextField.getText().isEmpty())
+        if(!email2TextField.getText().equals(emailList.get(2)) /*&& !email2TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(2, email2TextField.getText());
         }
-        if(!email3TextField.getText().equals(emailList.get(3)) && !email3TextField.getText().isEmpty())
+        if(!email3TextField.getText().equals(emailList.get(3)) /*&& !email3TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(3, email3TextField.getText());
         }
-        if(!email4TextField.getText().equals(emailList.get(4)) && !email4TextField.getText().isEmpty())
+        if(!email4TextField.getText().equals(emailList.get(4)) /*&& !email4TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(4, email4TextField.getText());
         }
-        if(!email5TextField.getText().equals(emailList.get(5)) && !email5TextField.getText().isEmpty())
+        if(!email5TextField.getText().equals(emailList.get(5)) /*&& !email5TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(5, email5TextField.getText());
         }
-        if(!email6TextField.getText().equals(emailList.get(6)) && !email6TextField.getText().isEmpty())
+        if(!email6TextField.getText().equals(emailList.get(6)) /*&& !email6TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(6, email6TextField.getText());
         }
-        if(!email7TextField.getText().equals(emailList.get(7)) && !email7TextField.getText().isEmpty())
+        if(!email7TextField.getText().equals(emailList.get(7)) /*&& !email7TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(7, email7TextField.getText());
         }
-        if(!email8TextField.getText().equals(emailList.get(8)) && !email8TextField.getText().isEmpty())
+        if(!email8TextField.getText().equals(emailList.get(8)) /*&& !email8TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(8, email8TextField.getText());
         }
-        if(!email9TextField.getText().equals(emailList.get(9)) && !email9TextField.getText().isEmpty())
+        if(!email9TextField.getText().equals(emailList.get(9)) /*&& !email9TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(9, email9TextField.getText());
         }
-        if(!email10TextField.getText().equals(emailList.get(10)) && !email10TextField.getText().isEmpty())
+        if(!email10TextField.getText().equals(emailList.get(10)) /*&& !email10TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(10, email10TextField.getText());
         }
-        if(!email11TextField.getText().equals(emailList.get(11)) && !email11TextField.getText().isEmpty())
+        if(!email11TextField.getText().equals(emailList.get(11)) /*&& !email11TextField.getText().isEmpty()*/)
         {
             TAKTFXMLModel.setEmailList(11, email11TextField.getText());
         }
