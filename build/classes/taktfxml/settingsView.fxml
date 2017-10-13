@@ -92,7 +92,7 @@
             </TextField>
          </children>
       </VBox>
-      <Button fx:id="resetUnitsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleResetUnitsButton" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Reset Units" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="resetButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleResetButton" style="-fx-background-color: #4F81BD; -fx-border-color: #234972; -fx-border-radius: 100; -fx-border-width: 5; -fx-background-radius: 100;" text="Reset" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <effect>
             <InnerShadow choke="0.67" color="#234972" height="47.88" radius="23.275" width="47.22" />
          </effect>

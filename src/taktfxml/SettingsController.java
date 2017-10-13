@@ -11,16 +11,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -42,6 +41,8 @@ public class SettingsController implements Initializable
     private Button saveButton;
     @FXML
     private Button closeButton;
+    @FXML
+    private Button resetButton;
     @FXML
     private VBox labelBox;
     @FXML
@@ -94,16 +95,32 @@ public class SettingsController implements Initializable
     @FXML
     public void handleCloseButton(ActionEvent event)
     {
-//        TAKTFXMLController.closeSettingsStage();
         TAKTFXML.setRoot(TAKTFXML.getRoot());
     }
     
     @FXML
-    public void handleResetUnitsButton(ActionEvent event)
+    public void handleResetButton(ActionEvent event) throws Exception
     {
         TAKTFXMLModel.setUnits(1);
         TAKTFXMLModel.setSecondsRemaining(TAKTFXMLModel.getTaktTime());
         TAKTFXMLModel.saveProperties();
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(SettingsController.class.getResource("TAKTFXMLView.fxml"));
+        Parent root = loader.load();
+
+        TAKTFXMLController controller = loader.getController();
+
+        if(controller.getTimeline() != null)
+            controller.getTimeline().stop();
+        
+        TAKTFXMLModel.setIsRunning(false);
+        
+        controller.getUnitsLbl().setText(String.format("%02d", TAKTFXMLModel.getUnits()));
+        
+        controller.getTaktTimeLbl().setTextFill(Color.WHITE);
+        controller.getTaktTimeLbl().setText(String.format("+%02d", (int) TAKTFXMLModel.getSecondsRemaining() / 60) + ":" + String.format("%02d", (int) TAKTFXMLModel.getSecondsRemaining() % 60));
+        controller.getTaktTimeLbl().setPadding(new Insets(-50, 0, -80, 0));
     }
 
     /**
@@ -115,6 +132,5 @@ public class SettingsController implements Initializable
         taktTextField.setText(String.format("%f", TAKTFXMLModel.getTaktTime() / 60));
         partNumTextField.setText(String.format("%d", TAKTFXMLModel.getPartNumber()));
         unitGoalTextField.setText(String.format("%d", TAKTFXMLModel.getUnitGoal()));
-    }    
-    
+    }
 }

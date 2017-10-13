@@ -37,7 +37,7 @@ public class TAKTFXMLController implements Initializable
     @FXML 
     private GridPane root;
     @FXML
-    private Label titleLbl;
+    private  Label titleLbl;
     @FXML
     private Label dateTimeLbl;
     @FXML
@@ -95,7 +95,13 @@ public class TAKTFXMLController implements Initializable
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
     
-    public void updateTAKTTime(boolean bool)
+    public Label getTaktTimeLbl(){return taktTimeLbl;}
+    
+    public Label getUnitsLbl(){return unitsLbl;}
+    
+    public Timeline getTimeline(){return timeline;}
+    
+    private void updateTAKTTime(boolean bool)
     {
         unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
         
