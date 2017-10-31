@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  */
 public class TAKTFXML extends Application
 {
-    private TAKTFXMLModel model;
     private static Stage rootStage;
     private static Parent root;
     
@@ -26,7 +25,7 @@ public class TAKTFXML extends Application
     public void start(Stage stage) throws Exception
     {
         rootStage = stage;
-        model = new TAKTFXMLModel();
+        TAKTFXMLModel.importProperties();
         
         root = FXMLLoader.load(getClass().getResource("TAKTFXMLView.fxml"));
         

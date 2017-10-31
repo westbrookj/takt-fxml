@@ -64,10 +64,10 @@ public class TAKTFXMLModel
             
     public TAKTFXMLModel()
     {
-        importProperties();
+        
     }
     
-    private static void importProperties()
+    public static void importProperties()
     {
         isRunning = false;
         fontSize = java.lang.Math.round(0.045 * height);

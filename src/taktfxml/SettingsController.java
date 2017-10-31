@@ -74,7 +74,7 @@ public class SettingsController implements Initializable
     }
     
     @FXML
-    public void handleSaveButton(ActionEvent event)
+    public void handleSaveButton(ActionEvent event) throws Exception
     {
         if(Double.parseDouble(taktTextField.getText()) != TAKTFXMLModel.getTaktTime() && !taktTextField.getText().isEmpty())
         {

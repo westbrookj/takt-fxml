@@ -123,6 +123,17 @@ public class TAKTFXMLController implements Initializable
         dateTimeLbl.setText(TAKTFXMLModel.getDateString());
     }
     
+    private void updatePauseButton()
+    {
+        if(TAKTFXMLModel.getIsPaused() == true)
+        {
+            pauseButton.setText("Resume");
+        }else
+        {
+            pauseButton.setText("Pause");
+        }
+    }
+    
     @FXML
     public void handleStartButton(ActionEvent event)
     {
@@ -137,6 +148,7 @@ public class TAKTFXMLController implements Initializable
         
         TAKTFXMLModel.setIsRunning(true);
         TAKTFXMLModel.setIsPaused(false);
+        updatePauseButton();
     }
     
     @FXML
@@ -147,7 +159,7 @@ public class TAKTFXMLController implements Initializable
             timeline.pause();
             TAKTFXMLModel.setIsRunning(false);
             TAKTFXMLModel.setIsPaused(true);
-            pauseButton.setText("Resume");
+            updatePauseButton();
         }else
         {
             if(TAKTFXMLModel.getIsPaused() == true)
@@ -155,7 +167,7 @@ public class TAKTFXMLController implements Initializable
             
             timeline.play();
             TAKTFXMLModel.setIsRunning(true);
-            pauseButton.setText("Pause");
+            updatePauseButton();
         }
     }
     
@@ -166,6 +178,8 @@ public class TAKTFXMLController implements Initializable
             timeline.stop();
         
         TAKTFXMLModel.setIsRunning(false);
+        TAKTFXMLModel.setIsPaused(false);
+        updatePauseButton();
         
         TAKTFXMLModel.appendToLog(TAKTFXMLModel.getCurrentDate() + ",0,end," + TAKTFXMLModel.getCurrentTime() + "\n");
         
@@ -202,12 +216,8 @@ public class TAKTFXMLController implements Initializable
     @FXML
     public void handleSettingsButton(ActionEvent event) throws Exception
     {
-//        settingsStage = new Stage();
         settingsRoot = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
         
         TAKTFXML.setRoot(settingsRoot);
-//        settingsStage.setScene(scene);
-//        settingsStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
-//        settingsStage.show();
     }
 }
