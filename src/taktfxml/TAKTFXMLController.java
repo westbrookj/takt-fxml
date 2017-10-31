@@ -104,6 +104,8 @@ public class TAKTFXMLController implements Initializable
     private void updateTAKTTime(boolean bool)
     {
         unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
+        dateTimeLbl.setText(TAKTFXMLModel.getDateString());
+        titleLbl.setText(TAKTFXMLModel.getPartNumber());
         
         if(bool == true)
             TAKTFXMLModel.decrementSecondsRemaining();
@@ -119,8 +121,6 @@ public class TAKTFXMLController implements Initializable
             taktTimeLbl.setText(String.format("-%02d",(int)java.lang.Math.abs(TAKTFXMLModel.getSecondsRemaining() / 60)) + ":" + String.format("%02d", (int)java.lang.Math.abs(TAKTFXMLModel.getSecondsRemaining() % 60)));
             taktTimeLbl.setPadding(new Insets(-50, 55, -80, 55));
         }
-        
-        dateTimeLbl.setText(TAKTFXMLModel.getDateString());
     }
     
     private void updatePauseButton()
@@ -137,11 +137,14 @@ public class TAKTFXMLController implements Initializable
     @FXML
     public void handleStartButton(ActionEvent event)
     {
-        updateTAKTTime(false);
         timeline.play();
         
         if(TAKTFXMLModel.getIsPaused() != true && TAKTFXMLModel.getIsRunning() == false)
         {
+            TAKTFXMLModel.setUnits(0);
+            TAKTFXMLModel.setSecondsRemaining(TAKTFXMLModel.getTaktTime());
+            updateTAKTTime(false);
+            
             TAKTFXMLModel.updateOutputFile();
             TAKTFXMLModel.appendToLog(TAKTFXMLModel.getCurrentDate() + ",0,start," + TAKTFXMLModel.getCurrentTime() + "\n");
         }

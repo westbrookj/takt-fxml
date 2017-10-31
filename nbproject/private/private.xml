@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/FileEmailController.java</file>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/TAKTFXML.java</file>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/SettingsController.java</file>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/TAKTFXMLModel.java</file>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/SendEmail.java</file>
-            <file>file:/H:/NetBeans/takt-fxml/src/taktfxml/TAKTFXMLController.java</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/settingsView.fxml</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/TAKTFXMLController.java</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/SettingsController.java</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/FileEmailController.java</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/config.properties</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/TAKTFXMLModel.java</file>
+            <file>file:/C:/Users/jwgy5/Google%20Drive/TAKT%20Clock/takt-fxml/src/taktfxml/TAKTFXML.java</file>
         </group>
     </open-files>
 </project-private>

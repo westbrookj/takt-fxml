@@ -62,15 +62,10 @@ public class SettingsController implements Initializable
     
     @FXML
     public void handleFileEmailButton(ActionEvent event) throws Exception
-    {
-//        fileEmailStage = new Stage();        
+    {     
         fileEmailRoot = FXMLLoader.load(getClass().getResource("fileEmailView.fxml"));
         
         TAKTFXML.setRoot(fileEmailRoot);
-        
-//        fileEmailStage.setScene(scene);
-//        fileEmailStage.getIcons().add( new Image(TAKTFXML.class.getResourceAsStream( "icon.png" )));
-//        fileEmailStage.show();
     }
     
     @FXML
@@ -80,9 +75,9 @@ public class SettingsController implements Initializable
         {
             TAKTFXMLModel.setTaktTime(Double.parseDouble(taktTextField.getText()) * 60);
         }
-        if(Integer.parseInt(partNumTextField.getText()) != TAKTFXMLModel.getPartNumber() && !partNumTextField.getText().isEmpty())
+        if(!partNumTextField.getText().equals(TAKTFXMLModel.getPartNumber()) && !partNumTextField.getText().isEmpty())
         {
-            TAKTFXMLModel.setPartNumber(Integer.parseInt(partNumTextField.getText()));
+            TAKTFXMLModel.setPartNumber(partNumTextField.getText());
         }
         if(Integer.parseInt(unitGoalTextField.getText()) != TAKTFXMLModel.getUnitGoal() && !unitGoalTextField.getText().isEmpty())
         {
@@ -130,7 +125,7 @@ public class SettingsController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         taktTextField.setText(String.format("%f", TAKTFXMLModel.getTaktTime() / 60));
-        partNumTextField.setText(String.format("%d", TAKTFXMLModel.getPartNumber()));
+        partNumTextField.setText(TAKTFXMLModel.getPartNumber());
         unitGoalTextField.setText(String.format("%d", TAKTFXMLModel.getUnitGoal()));
     }
 }

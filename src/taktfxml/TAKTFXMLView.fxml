@@ -10,9 +10,9 @@
 
 <GridPane fx:id="root" alignment="CENTER" hgap="30.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taktfxml.TAKTFXMLController">
    <children>
-      <Label fx:id="titleLbl" alignment="CENTER" text="Zivelo Assembly" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <Label fx:id="titleLbl" alignment="CENTER" text="Part Number" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <font>
-            <Font size="110.0" />
+            <Font name="System Bold" size="110.0" />
          </font>
       </Label>
       <Label fx:id="dateTimeLbl" alignment="CENTER" text="Monday, August 14, 2017" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

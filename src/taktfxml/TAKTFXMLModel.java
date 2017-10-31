@@ -36,7 +36,7 @@ public class TAKTFXMLModel
     
     private static int unitGoal;
     private static int units;
-    private static int partNumber;
+    private static String partNumber;
     private static int numberOfEmails = 12;
     
     private static String outputLocation;
@@ -104,8 +104,8 @@ public class TAKTFXMLModel
                 unitGoal = Integer.parseInt(prop.getProperty("unitGoal"));
             }else{unitGoal = 20;}
             if(prop.getProperty("partNumber") != null){
-                partNumber = Integer.parseInt(prop.getProperty("partNumber"));
-            }else{partNumber = 1234;}
+                partNumber = prop.getProperty("partNumber");
+            }else{partNumber = "NW1234";}
             if(prop.getProperty("units") != null){
                 units = Integer.parseInt(prop.getProperty("units"));
             }else{units = 1;}
@@ -163,9 +163,9 @@ public class TAKTFXMLModel
         {
             prop.setProperty("secondsRemaining", String.format("%d", (int) secondsRemaining));
         }
-        if(!Integer.toString(partNumber).equals(prop.getProperty("partNumber")))
+        if(!partNumber.equals(prop.getProperty("partNumber")))
         {
-            prop.setProperty("partNumber", String.format("%d", partNumber));
+            prop.setProperty("partNumber", partNumber);
         }
         if(!outputFileName.equals(prop.getProperty("outputFileName")))
         {
@@ -219,8 +219,8 @@ public class TAKTFXMLModel
     public static int getUnitGoal(){return unitGoal;}
     public static void setUnitGoal(int goal){unitGoal = goal;}
     
-    public static int getPartNumber(){return partNumber;}
-    public static void setPartNumber(int part){partNumber = part;}
+    public static String getPartNumber(){return partNumber;}
+    public static void setPartNumber(String part){partNumber = part;}
     
     public static String getOutputLocation(){return outputLocation;}
     public static void setOutputLocation(String location){outputLocation = location;}
