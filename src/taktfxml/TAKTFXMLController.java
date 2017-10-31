@@ -141,7 +141,7 @@ public class TAKTFXMLController implements Initializable
         
         if(TAKTFXMLModel.getIsPaused() != true && TAKTFXMLModel.getIsRunning() == false)
         {
-            TAKTFXMLModel.setUnits(1);
+            TAKTFXMLModel.setUnits(0);
             TAKTFXMLModel.setSecondsRemaining(TAKTFXMLModel.getTaktTime());
             updateTAKTTime(false);
             

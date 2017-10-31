@@ -96,7 +96,7 @@ public class SettingsController implements Initializable
     @FXML
     public void handleResetButton(ActionEvent event) throws Exception
     {
-        TAKTFXMLModel.setUnits(1);
+        TAKTFXMLModel.setUnits(0);
         TAKTFXMLModel.setSecondsRemaining(TAKTFXMLModel.getTaktTime());
         TAKTFXMLModel.saveProperties();
         

@@ -108,7 +108,7 @@ public class TAKTFXMLModel
             }else{partNumber = "NW1234";}
             if(prop.getProperty("units") != null){
                 units = Integer.parseInt(prop.getProperty("units"));
-            }else{units = 1;}
+            }else{units = 0;}
             if(prop.getProperty("secondsRemaining") != null){
                 secondsRemaining = Double.parseDouble(prop.getProperty("secondsRemaining"));
             }else{secondsRemaining = taktTime;}
