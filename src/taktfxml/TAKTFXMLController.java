@@ -206,7 +206,9 @@ public class TAKTFXMLController implements Initializable
                 unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
                 if(TAKTFXMLModel.getUnits() == TAKTFXMLModel.getUnitGoal())
                 {
-                    SendEmail.sendEmail();
+                    SendEmail email = new SendEmail();
+                    Thread thread = new Thread(email);
+                    thread.start();
                 }
             }
             timeline.stop();
