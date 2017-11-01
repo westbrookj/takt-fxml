@@ -18,29 +18,23 @@ import javax.mail.internet.MimeMessage;
  */
 public class SendEmail implements Runnable
 {
-    private ArrayList<String> emailList;
-    private Properties props;
-    private Session session;
-    private Message message;
-    
-    public void SendEmail()
-    {
-        emailList = TAKTFXMLModel.getEmailList();
-        
-        props = new Properties();
-        props.put("mail.smtp.host", "10.1.1.9");
-        props.put("mail.smtp.port", "25");
-        
-        session = Session.getInstance(props, null);
-    }
+    public void SendEmail(){}
     
     @Override
     public void run()
     {
         Platform.runLater(() -> {
+            ArrayList<String> emailList = TAKTFXMLModel.getEmailList();
+        
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "10.1.1.9");
+            props.put("mail.smtp.port", "25");
+
+            Session session = Session.getInstance(props, null);
+            
             try
             {
-                message = new MimeMessage(session);
+                Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("TAKTClock@nu-way.net"));
                 for(int i = 0; i < TAKTFXMLModel.getNumberOfEmails(); i++)
                 {
