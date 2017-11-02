@@ -197,12 +197,12 @@ public class TAKTFXMLController implements Initializable
         if(TAKTFXMLModel.getIsRunning() == true)
         {
             if(TAKTFXMLModel.getSecondsRemaining() != TAKTFXMLModel.getTaktTime())
-            {                
+            {
+                TAKTFXMLModel.incrementUnits();
                 TAKTFXMLModel.appendToLog(TAKTFXMLModel.getCurrentDate()
                     + "," + TAKTFXMLModel.getUnits()
                     + "," + TAKTFXMLModel.getPartNumber()
                     + "," + TAKTFXMLModel.getCurrentTime() + "\n");
-                TAKTFXMLModel.incrementUnits();
                 unitsLbl.setText(String.format("%02d", TAKTFXMLModel.getUnits()));
                 if(TAKTFXMLModel.getUnits() == TAKTFXMLModel.getUnitGoal())
                 {
