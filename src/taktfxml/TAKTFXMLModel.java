@@ -61,11 +61,6 @@ public class TAKTFXMLModel
     private static LocalDateTime date;
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MM-dd-yyyy");
-            
-    public TAKTFXMLModel()
-    {
-        
-    }
     
     public static void importProperties()
     {
